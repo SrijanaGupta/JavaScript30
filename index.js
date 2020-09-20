@@ -5,12 +5,16 @@ window.addEventListener('keydown',function(e){
     audio.currentTime = 0;
     audio.play();
     key.classList.add('playing');
+    //console.log('Global event listener this - ',this);
+});
+    //console.log('Global this - ',this);
 
     function removeTransition(e){
-        console.log(e);
+        if(e.propertyName != 'transform')
+         return;
+        // console.log('method associated this - ',this);
+         this.classList.remove('playing'); //here this is 'key'. this is reference to the property on which a method is being called (method in which we are accessing this)
     }
 
     const keys = document.querySelectorAll('.key');
-    keys.forEach(key => key.addEventListener('transitioned',removeTransition));
-
-});
+    keys.forEach(key => key.addEventListener('transitionend',removeTransition));
