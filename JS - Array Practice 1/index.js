@@ -152,3 +152,171 @@ const Counter = data.reduce((obj, item) => {
     return obj;
 }, {});
 console.log(Counter);
+
+
+//Problem Solving in Arrays//
+/********************************/
+
+//find a missing number in a given integer array of 1-100. Include overflow..
+function findMissingNumber(arr1){
+    let missingnumArr = [];
+    for (let i =1;i<=20;i++){
+        if(!arr1.includes(i))
+            missingnumArr.push(i);
+    }
+    return missingnumArr;
+}
+
+var arr1 = [1,5,6,7,8,9,10,11,12,13,15,16,18,19,20]
+console.log(findMissingNumber(arr1));
+
+//find the first and second smallest number in the unsorted array
+var arr2 = [5,23,12,76,45,2,90]
+function findSmallest(arr2){
+   return arr2.sort((a,b)=>a-b).splice(0,2);
+}
+
+console.log(findSmallest(arr2));
+
+//reverse an array
+var arr3 = [5,23,12,76,45,2,90]
+function reverseArr(arr){
+    let newArr=[];
+    for(let i=arr.length-1;i>=0;i--){
+        newArr.push(arr[i]);
+    }
+    return newArr;
+}
+
+console.log(reverseArr(arr3))
+
+//In a given integer array, find a contagious subarray(containing atlease one number) which has the largest sum and return its sum
+
+
+//perform binary search on a given array
+
+//in an unsorted array, find the length of the longest consecutive elements seqence
+
+//remove duplicates from an array
+
+//find intersection of 2 sorted arrays
+
+//there is an array which has every element repeated twice expect for one. Find that one element.
+
+//to find pairs in an intger array whose sum is equal to the given number
+
+//how to find repeated numbers in a array if it contains multiple duplicates
+
+//to find kth smallest and kth largest element in an unsorted array
+
+//flatten a given multidimensional array
+
+//anagram
+
+//traverse through a duplicate array and get the element with max repeats; if more than one element has same count, then get a new array that is sorted in alphabetical order.
+
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
+var letterArr = ["F", "F", "C", "C", "E", "W", "F", "E", "E", "E", "C", "C"];
+function getMaxReps(letterArr) {
+  letterArr.sort();
+ // console.log(letterArr);
+  var countObj = {};
+  var c;
+  var noelement = 0;
+  filteredObj = [];
+  for (let i = 0; i < letterArr.length; i++) {
+    if (!isEmpty(countObj)) {
+      for (let key in countObj) {
+        if (key === letterArr[i]) {
+          c = c + 1;
+          countObj[key] = c;
+          noelement = 0;
+        } else {
+          noelement = noelement + 1;
+        }
+      }
+
+      if (noelement >= 1) {
+        countObj[letterArr[i]] = 1;
+        c = 1;
+      }
+    } else {
+      countObj[letterArr[i]] = 1;
+      c = 1;
+    }
+  }
+
+  let max = Math.max(...Object.values(countObj));
+  for (key in countObj) {
+    if (countObj[key] == max) {
+      filteredObj.push(key);
+    }
+  }
+  console.log(filteredObj);
+}
+
+getMaxReps(letterArr);
+
+//WAP for getting the perfect phone number for Kelly. Conditions are - 
+//1- the number should contain one digit at repeats 3 times consecutively.
+//2- the number should contain one digit that repeats 4 times in the entire number
+//input - list of 10 digit numbers
+var numbers = ['9088897951','9088897999','9167121391','9116779390'];
+function validatePhoneNo(numbers) {
+    let digits, newArr = [];
+    let firstCon, secondCon;
+    for (let i = 0; i < numbers.length; i++) {
+        firstCon = false;
+        secondCon = false;
+        digits = [...numbers[i]];
+        //first condition validation
+        for (j = 0; j < digits.length; j++) {
+            if (digits[j] == digits[j + 1] && digits[j + 1] == digits[j + 2]) {
+                newArr.push(digits[j])
+            }
+        }
+        if (newArr.length === 1) {
+            firstCon = true;
+        }
+        else
+            firstCon = false; 
+        newArr = [];
+
+        //second condition validation
+        digits.sort();
+        for (j = 0; j < digits.length; j++) {
+            if (digits[j] == digits[j + 1] && digits[j + 1] == digits[j + 2] && digits[j + 2] == digits[j + 3]) {
+                newArr.push(digits[j]);
+            }
+        }
+        if (newArr.length === 1) {
+            secondCon = true;
+        }
+        else
+            secondCon = false;   
+        newArr = [];
+
+        if (firstCon == true || secondCon == true) {
+            console.log('yes');
+        }
+        else
+            console.log('no');
+    }
+}
+
+validatePhoneNo(numbers);
+
+//accept the name (Srijana Gupta) and return a shuffled name(Gupta Srijana)
+
+//Take array of strings (words) and return only the words with 4 letters
+
+//negate the numbers array
+
+//return 'BOOM' if the array contains 7

@@ -1,6 +1,6 @@
 const endPoint =
   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
-
+  
 const dataArray = [];
 //fetching the data using fetch() api, in order to fetch the data from a url(web server)
 fetch(endPoint).then((data) =>

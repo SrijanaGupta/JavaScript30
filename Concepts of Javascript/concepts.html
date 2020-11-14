@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Concepts of JavaScript</title>
+        <style>
+          .outerspan{
+            color: blue;
+          }
+
+          span{
+            color: yellow;
+          }
+
+          div{
+            color: black;
+          }
+
+          div span{
+            color: green;
+          }
+
+          h3 span{
+            color: red;
+          }
+        </style>
+    </head>
+    <body>
+        <script src="concepts.js"></script>
+        <p id="p"></p>
+        <div class="image">
+            <img src="https://www.testdome.com/files/resources/12362/aff5c408-79f8-4220-9769-8b4cde774c98.jpg" alt="First">
+            <button class="remove">X</button>
+          </div>
+          <div class="image">
+            <img src="https://www.testdome.com/files/resources/12362/dbd97d8f-cc11-48bd-bf21-b8762a39a55e.jpg" alt="Second">
+            <button class="remove">X</button>
+          </div>
+          <div>
+            <h3>
+              <span class="outerspan">Sample Text</span>
+            </h3>
+          </div>
+        <button onclick="throttle()">Click Me</button>
+    </body>
+</html>
