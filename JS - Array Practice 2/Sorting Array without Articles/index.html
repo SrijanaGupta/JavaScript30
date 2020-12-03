@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sort Without Articles</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000");
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        min-height: 90vh;
+      }
+
+      #bands {
+        list-style: inside square;
+        font-size: 10px;
+        background: white;
+        width: 500px;
+        margin: auto;
+        padding: 0;
+        box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+      }
+      #bands li {
+        border-bottom: 1px solid #efefef;
+        padding: 15px;
+      }
+      #bands li:last-child {
+        border-bottom: 0;
+      }
+
+      a {
+        color: #ffc600;
+        text-decoration: none;
+      }
+    </style>
+
+    <ul id="bands"></ul>
+
+    <script>
+      //array of bands  
+      const bands = [
+        "The Plot in You",
+        "The Devil Wears Prada",
+        "Pierce the Veil",
+        "Norma Jean",
+        "The Bled",
+        "Say Anything",
+        "The Midway State",
+        "We Came as Romans",
+        "Counterparts",
+        "Oh, Sleeper",
+        "A Skylit Drive",
+        "Anywhere But Here",
+        "An Old Dog",
+      ];
+
+      //fetching the ul to which sorted list has to be appended
+      const bandsList = document.querySelector("#bands");
+
+      //to remove the article and then sort with the band name
+      function word(bandName) {
+        const arrOfName = bandName.split(" ");
+        arrOfName.forEach((word, i) => {
+          if (word == "The" || word == "A" || word == "An") {
+            arrOfName.splice(i, 1);
+          }
+        });
+        return arrOfName.toString().split(",").join(" ");
+      }
+
+      //sorting the array without article
+      bands.sort((a, b) => (word(a) > word(b) ? 1 : -1));
+
+      //displaying the sorted array list on the page
+      for (let i = 0; i < bands.length; i++) {
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(bands[i]));
+        bandsList.appendChild(li);
+      }
+    </script>
+  </body>
+</html>
