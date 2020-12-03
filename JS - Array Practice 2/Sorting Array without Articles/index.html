@@ -81,6 +81,11 @@
         li.appendChild(document.createTextNode(bands[i]));
         bandsList.appendChild(li);
       }
+
+      /* OR
+      sortedBands = bands.sort((a, b) => (word(a) > word(b) ? 1 : -1));
+      bandsList.innerHTML = sortedBands.map(band =>`<li>${band}</li>`).join('');
+      */
     </script>
   </body>
 </html>
